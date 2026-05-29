@@ -12,9 +12,9 @@ public class PescadorMapper {
             0L,
             request.nombre(),
             request.licencia(),
-            request.activo(),
             request.BoteId(),
-            request.sindicato()
+            request.sindicato(),
+            true
         );
     }
 
@@ -24,9 +24,9 @@ public class PescadorMapper {
             id,
             request.nombre(),
             request.licencia(),
-            request.activo(),
             request.BoteId(),
-            request.sindicato()
+            request.sindicato(),
+            true
         );
     }
 

@@ -30,16 +30,15 @@ public class Pescador {
     @Column(name = "activo", nullable = false)
     private boolean activo;
 
-    public Pescador() {
-    }
+    public Pescador() {}
 
-    public Pescador(Long BoteId, boolean activo, Long id, String licencia, String nombre, String sindicato) {
-        this.BoteId = BoteId;
-        this.activo = activo;
+    public Pescador(Long id, String nombre, String licencia, Long boteId, String sindicato, boolean activo) {
         this.id = id;
-        this.licencia = licencia;
         this.nombre = nombre;
+        this.licencia = licencia;
+        this.BoteId = boteId;
         this.sindicato = sindicato;
+        this.activo = activo;
     }
 
     public Long getId() {
