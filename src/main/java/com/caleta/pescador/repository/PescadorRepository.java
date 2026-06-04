@@ -17,7 +17,7 @@ public interface PescadorRepository extends JpaRepository<Pescador, Long> {
     Pescador findByLicencia(@Param("licencia") String licencia);
 
     //Verificar existencia de licencia
-    @Query(value = "SELECT COUNT(*) > 0 FROM pescadores WHERE licencia = :licencia", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM pescadores WHERE licencia = :licencia", nativeQuery = true)
     int countByLicencia(@Param("licencia") String licencia);
 
     @Query(value = "SELECT * FROM pescadores WHERE activo = true", nativeQuery = true)
@@ -25,5 +25,8 @@ public interface PescadorRepository extends JpaRepository<Pescador, Long> {
 
     @Query(value = "SELECT * FROM pescadores WHERE sindicato = :sindicato", nativeQuery = true)
     List<Pescador> findBySindicato(@Param("sindicato") String sindicato);
+
+    @Query(value = "SELECT * FROM pescadores WHERE usuario_id = :usuarioId", nativeQuery = true)
+    Pescador findByUsuarioId(@Param("usuarioId") String usuarioId);
 
 }

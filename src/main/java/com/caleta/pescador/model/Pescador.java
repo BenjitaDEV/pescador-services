@@ -15,8 +15,8 @@ public class Pescador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
+    @Column(name = "usuario_id", nullable = false)
+    private Long usuarioId;
 
     @Column(name = "licencia", nullable = false)
     private String licencia;
@@ -33,13 +33,13 @@ public class Pescador {
     public Pescador() {
     }
 
-    public Pescador(Long BoteId, boolean activo, Long id, String licencia, String nombre, String sindicato) {
-        this.BoteId = BoteId;
-        this.activo = activo;
+    public Pescador(Long id, Long usuarioId, String licencia, Long boteId, String sindicato, boolean activo) {
         this.id = id;
+        this.usuarioId = usuarioId;
         this.licencia = licencia;
-        this.nombre = nombre;
+        BoteId = boteId;
         this.sindicato = sindicato;
+        this.activo = activo;
     }
 
     public Long getId() {
@@ -50,12 +50,12 @@ public class Pescador {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getLicencia() {
@@ -70,8 +70,8 @@ public class Pescador {
         return BoteId;
     }
 
-    public void setBoteId(Long boteId) {
-        BoteId = boteId;
+    public void setBoteId(Long BoteId) {
+        this.BoteId = BoteId;
     }
 
     public String getSindicato() {
@@ -90,5 +90,7 @@ public class Pescador {
         this.activo = activo;
     }
 
-
+    
 }
+
+    

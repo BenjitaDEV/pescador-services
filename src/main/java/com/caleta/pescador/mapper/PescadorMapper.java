@@ -10,11 +10,12 @@ public class PescadorMapper {
     public static Pescador toModel(CreatePescadorRequest request){
         return new Pescador(
             0L,
-            request.nombre(),
+            request.usuarioId(),
             request.licencia(),
-            request.activo(),
             request.BoteId(),
-            request.sindicato()
+            request.sindicato(),
+            request.activo()
+
         );
     }
 
@@ -22,11 +23,11 @@ public class PescadorMapper {
     public static Pescador toModel(Long id, UpdatePescadorRequest request){
         return new Pescador(
             id,
-            request.nombre(),
+            request.usuarioId(),
             request.licencia(),
-            request.activo(),
             request.BoteId(),
-            request.sindicato()
+            request.sindicato(),
+            request.activo()
         );
     }
 
