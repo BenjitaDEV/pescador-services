@@ -15,7 +15,6 @@ public class PescadorMapper {
             request.BoteId(),
             request.sindicato(),
             request.activo()
-
         );
     }
 
