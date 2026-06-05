@@ -9,7 +9,7 @@ public class PescadorMapper {
     //CREATE
     public static Pescador toModel(CreatePescadorRequest request){
         return new Pescador(
-            0L,
+            null,
             request.usuarioId(),
             request.licencia(),
             request.BoteId(),
