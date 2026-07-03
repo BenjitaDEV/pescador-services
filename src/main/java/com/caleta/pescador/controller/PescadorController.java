@@ -112,17 +112,20 @@ public class PescadorController {
 
             @Valid
             @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Datos del pescador",
+                    description = "Datos para registrar un pescador",
                     required = true,
                     content = @Content(
+                            mediaType = "application/json",
                             examples = @ExampleObject(
+                                    name = "Ejemplo de creación",
+                                    summary = "Crear pescador",
                                     value = """
                                     {
-                                      "nombre":"Juan Perez",
-                                      "edad":30,
-                                      "licencia":"LIC001",
-                                      "activo":true,
-                                      "sindicato":"Caleta Norte"
+                                      "usuarioId": 1,
+                                      "licencia": "LIC-2026-001",
+                                      "sindicato": "Sindicato Caleta Norte",
+                                      "boteId": 3,
+                                      "activo": true
                                     }
                                     """
                             )
@@ -144,7 +147,28 @@ public class PescadorController {
     @PutMapping("/{id}")
     public ResponseEntity<Pescador> actualizar(
             @PathVariable Long id,
+
             @Valid
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Datos para actualizar un pescador",
+                    required = true,
+                    content = @Content(
+                            mediaType = "application/json",
+                            examples = @ExampleObject(
+                                    name = "Ejemplo de actualización",
+                                    summary = "Actualizar pescador",
+                                    value = """
+                                    {
+                                      "usuarioId": 1,
+                                      "licencia": "LIC-2026-002",
+                                      "sindicato": "Sindicato Caleta Sur",
+                                      "boteId": 5,
+                                      "activo": false
+                                    }
+                                    """
+                            )
+                    )
+            )
             @org.springframework.web.bind.annotation.RequestBody UpdatePescadorRequest request) {
 
         Pescador pescadorAct = pescadorService.actualizarPescador(id, request);
