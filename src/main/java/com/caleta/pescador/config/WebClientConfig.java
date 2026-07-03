@@ -10,7 +10,7 @@ public class WebClientConfig {
     @Bean
     public WebClient loteWebClient(){
         return WebClient.builder()
-            .baseUrl("http://localhost:8081/api/v1/usuarios")
+            .baseUrl("https://usuarioev-1.onrender.com")
             .build();
     }
 
